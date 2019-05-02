@@ -46,7 +46,10 @@ class App extends Component {
       // Unexpected (network down, server down, bd down, bug)
       // - Log them
       // - Display a generic and friendly error message
-      if (ex.responce && ex.responce.status === 404) {
+      //
+      //ex.response - succesfully responce from server, otherwise - null (server, network, db are down)
+      //ex.request - succesfully submit a request to the server, otherwise - null
+      if (ex.response && ex.response.status === 404) {
         alert("This post has already been deleted.");
       } else {
         console.log("Logging the error", ex);
